@@ -41,7 +41,7 @@ C# 13.0
 
 Object-oriented design
 
-## Dependancies
+## Dependencies
 
 .NET 9+ Runtime (for the ```dotnet run``` command)
 
