@@ -43,7 +43,4 @@ Object-oriented design
 
 ## Dependencies
 
-.NET 9+ Runtime (for the ```dotnet run``` command)
-
-### Created by Dawid Ołdak
-  
+.NET 9+ Runtime
