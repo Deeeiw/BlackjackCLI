@@ -25,7 +25,7 @@ Play against a computer dealer, hit or stand, and try to reach 21 without bustin
 
 - Clone the repo:
   
-  ``` git clone https://github.com/YourUsername/BlackjackCLI.git ```
+  ``` git clone https://git.wwsi.edu.pl/DawidOldak/BlackjackCLI.git ```
 - Navigate to the project folder:
 
   ``` cd BlackjackCLI ```
