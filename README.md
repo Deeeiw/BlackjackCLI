@@ -39,8 +39,6 @@ C# 13.0
 
 .NET 9
 
-Object-oriented design
-
 ## Dependencies
 
 .NET 9+ Runtime
