@@ -2,21 +2,31 @@
 
 Console.WriteLine("Welcome to console Blackjack!");
 Console.WriteLine("Would you like to play a round? ( y / n )");
-var input = Console.ReadLine();
-if (input == "y")
+
+try
 {
-    using (var game = new Game())
+    var input = Console.ReadLine();
+    if (input == "y")
     {
-        game.Play();
+        using (var game = new Game())
+        {
+            game.Play();
+        }
+    }
+    else if (input == "n")
+    {
+        Console.WriteLine("Goodbye");
+    }
+    
+    if (input != "y" & input != "n")
+    {
+        throw new InvalidChoiceException();     // Zastosowanie customowego wyjątku
     }
 }
-else if (input == "n")
+catch (InvalidChoiceException e)
 {
-    Console.WriteLine("Goodbye");
+    Console.WriteLine(e.Message);
 }
-
-public delegate void CardDrawHandler(Player player, Card card);
-public delegate void RoundEndHandler(Player player, Player dealer, string result);
 
 public enum Color
 {
@@ -43,6 +53,9 @@ public enum Rank
     Ace = 11 // domyślnie 11
 };
 
+public delegate void CardDrawHandler(Player player, Card card);
+public delegate void RoundEndHandler(Player player, Player dealer, string result);
+
 public class Game : IDisposable
 {
     private bool _disposed = false;
@@ -59,9 +72,9 @@ public class Game : IDisposable
     
     public void Play()
     {
-        OnCardDraw += (p, c) =>
+        OnCardDraw += (player, card) =>
         {
-            Console.WriteLine($"{p.Name} draws: {c}");
+            Console.WriteLine($"{player.Name} draws: {card}");
         };
         OnRoundEnd += (player, dealer, result) =>
         {
@@ -95,24 +108,37 @@ public class Game : IDisposable
 
             while (true)
             {
-                Console.WriteLine("\nHit or Stand?");
-                var choice = Console.ReadLine();
-                if (choice == "h")
+                Console.WriteLine("\nHit or Stand? ( h / s )");
+                try
                 {
-                    var newCard = deck.DrawCard();
-                    player.PlayerCards.Add(newCard);
-                    Console.WriteLine("You drew " + newCard);
-                    Console.WriteLine("Your score: " + player.CalculateScore());
-
-                    if (player.CalculateScore() > 21)
+                    var choice = Console.ReadLine();
+                    if (choice == "h")
                     {
-                        Console.WriteLine("You busted!");
+                        var newCard = deck.DrawCard();
+                        player.PlayerCards.Add(newCard);
+                        Console.WriteLine("You drew " + newCard);
+                        Console.WriteLine("Your score: " + player.CalculateScore());
+
+                        if (player.CalculateScore() > 21)
+                        {
+                            Console.WriteLine("You busted!");
+                            break;
+                        }
+                    }
+                    else if (choice == "s")
+                    {
                         break;
                     }
+
+                    if (choice != "h" & choice != "s")
+                    {
+                        throw new InvalidChoiceException("Cannot choose other option than h (hit) or s (stand)!");  // Zastosowanie customowego wyjątku
+                    }
                 }
-                else if (choice == "s")
+                catch (InvalidChoiceException e)
                 {
-                    break;
+                    Console.WriteLine(e.Message);
+                    return;
                 }
             }
             
@@ -152,10 +178,23 @@ public class Game : IDisposable
             OnRoundEnd?.Invoke(player, dealer, result);
 
             Console.WriteLine("\nPlay again? (y/n)");
-            var again = Console.ReadLine();
-            if (again != "y")
+            try
             {
-                Console.WriteLine("Goodbye!");
+                var again = Console.ReadLine();
+                if (again == "n")
+                {
+                    Console.WriteLine("Goodbye!");
+                    return;
+                }
+
+                if (again != "y" & again != "n")
+                {
+                    throw new InvalidChoiceException("Cannot choose other option than y (yes) or n (no)!");  // Zastosowanie customowego wyjątku
+                }
+            }
+            catch (InvalidChoiceException e)
+            {
+                Console.WriteLine(e.Message);
                 return;
             }
         }
