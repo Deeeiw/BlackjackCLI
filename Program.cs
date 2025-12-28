@@ -20,7 +20,7 @@ try
     
     if (input != "y" & input != "n")
     {
-        throw new InvalidChoiceException();     // Zastosowanie customowego wyjątku
+        throw new InvalidChoiceException();
     }
 }
 catch (InvalidChoiceException e)
@@ -50,7 +50,7 @@ public enum Rank
     Jack = 10,
     Queen = 10,
     King = 10,
-    Ace = 11 // domyślnie 11
+    Ace = 11
 };
 
 public delegate void CardDrawHandler(Player player, Card card);
@@ -132,7 +132,7 @@ public class Game : IDisposable
 
                     if (choice != "h" & choice != "s")
                     {
-                        throw new InvalidChoiceException("Cannot choose other option than h (hit) or s (stand)!");  // Zastosowanie customowego wyjątku
+                        throw new InvalidChoiceException("Cannot choose other option than h (hit) or s (stand)!");
                     }
                 }
                 catch (InvalidChoiceException e)
@@ -189,7 +189,7 @@ public class Game : IDisposable
 
                 if (again != "y" & again != "n")
                 {
-                    throw new InvalidChoiceException("Cannot choose other option than y (yes) or n (no)!");  // Zastosowanie customowego wyjątku
+                    throw new InvalidChoiceException("Cannot choose other option than y (yes) or n (no)!");
                 }
             }
             catch (InvalidChoiceException e)
