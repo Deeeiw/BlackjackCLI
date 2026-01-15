@@ -3,7 +3,7 @@ namespace BlackjackCLI;
 public class Player
 {
     public string Name { get; init; } = "Player";
-    public int PlayerScore { get; set; } = 0;
+    public int PlayerScore { get; set; }
     public List<Card> PlayerCards { get; set; } = new();
 
     public int CalculateScore()
@@ -30,11 +30,11 @@ public class Player
     // Przeciążenie operatorów > i < do porównania score graczy w przypadku,
     // gdy żaden z graczy nie przekroczył 21.
     
-    public static bool operator >(Player p1, Player p2)
+    public static bool operator > (Player p1, Player p2)
     {
         return p1.CalculateScore() > p2.CalculateScore();
     }
-    public static bool operator <(Player p1, Player p2)
+    public static bool operator < (Player p1, Player p2)
     {
         return p1.CalculateScore() < p2.CalculateScore();
     }

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/home/deiw/RiderProjects/BlackjackCLI/BlackjackCLI.csproj": {}
+    "C:\\Users\\Dawid\\RiderProjects\\BlackjackCLI\\BlackjackCLI.csproj": {}
   },
   "projects": {
-    "/home/deiw/RiderProjects/BlackjackCLI/BlackjackCLI.csproj": {
+    "C:\\Users\\Dawid\\RiderProjects\\BlackjackCLI\\BlackjackCLI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/deiw/RiderProjects/BlackjackCLI/BlackjackCLI.csproj",
+        "projectUniqueName": "C:\\Users\\Dawid\\RiderProjects\\BlackjackCLI\\BlackjackCLI.csproj",
         "projectName": "BlackjackCLI",
-        "projectPath": "/home/deiw/RiderProjects/BlackjackCLI/BlackjackCLI.csproj",
-        "packagesPath": "/home/deiw/.nuget/packages/",
-        "outputPath": "/home/deiw/RiderProjects/BlackjackCLI/obj/",
+        "projectPath": "C:\\Users\\Dawid\\RiderProjects\\BlackjackCLI\\BlackjackCLI.csproj",
+        "packagesPath": "C:\\Users\\Dawid\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Dawid\\RiderProjects\\BlackjackCLI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/deiw/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Dawid\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -36,9 +36,9 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "direct"
+          "auditMode": "all"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net9.0": {
@@ -59,7 +59,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/home/deiw/.dotnet/sdk/9.0.306/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\Dawid\\.dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

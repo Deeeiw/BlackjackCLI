@@ -54,11 +54,11 @@ public enum Rank
 };
 
 public delegate void CardDrawHandler(Player player, Card card);
-public delegate void RoundEndHandler(Player player, Player dealer, string result);
+public delegate void RoundEndHandler(Player player, Player dealer, string result, Stats scoreboard);
 
 public class Game : IDisposable
 {
-    private bool _disposed = false;
+    private bool _disposed;
     
     public event CardDrawHandler? OnCardDraw;
     public event RoundEndHandler? OnRoundEnd;
@@ -76,11 +76,33 @@ public class Game : IDisposable
         {
             Console.WriteLine($"{player.Name} draws: {card}");
         };
-        OnRoundEnd += (player, dealer, result) =>
+        OnRoundEnd += (player, dealer, result, scoreboard) =>
         {
-            Console.WriteLine($"Round ended. Player score: {player.CalculateScore()}, " +
-                              $"Dealer score: {dealer.CalculateScore()}. Result: {result}");
+            Console.WriteLine("\n ---RESULT---");
+            Console.WriteLine($"Round ended.\n" +
+                              $"Player score: {player.CalculateScore()} | " +
+                              $"Dealer score: {dealer.CalculateScore()}\n" +
+                              $"Result: {result}");
+            
+            if (result == "You win!")
+            {
+                scoreboard.Wins += 1;
+            }
+            else if (result == "Dealer wins!")
+            {
+                scoreboard.Losses += 1;
+            }
+            else if (result == "It's a draw!")
+            {
+                scoreboard.Draws += 1;
+            }
+
+            scoreboard.Total += 1;
+            Console.WriteLine("\n---STATS---");
+            scoreboard.DisplayStats();
         };
+
+        var scoreboard = new Stats();
         
         while (true)
         {
@@ -91,6 +113,7 @@ public class Game : IDisposable
             };
             var deck = new Deck();
             deck.Shuffle();
+            
             
             DrawCardFor(player, deck);
             DrawCardFor(player, deck);
@@ -174,8 +197,7 @@ public class Game : IDisposable
             else
                 result = "It's a draw!";
             
-            Console.WriteLine("\n ---RESULT---");
-            OnRoundEnd?.Invoke(player, dealer, result);
+            OnRoundEnd?.Invoke(player, dealer, result, scoreboard);
 
             Console.WriteLine("\nPlay again? (y/n)");
             try
