@@ -1,25 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Dawid\\RiderProjects\\BlackjackCLI\\BlackjackCLI.csproj": {}
+    "/home/deiw/RiderProjects/BlackjackCLI/BlackjackCLI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Dawid\\RiderProjects\\BlackjackCLI\\BlackjackCLI.csproj": {
+    "/home/deiw/RiderProjects/BlackjackCLI/BlackjackCLI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Dawid\\RiderProjects\\BlackjackCLI\\BlackjackCLI.csproj",
+        "projectUniqueName": "/home/deiw/RiderProjects/BlackjackCLI/BlackjackCLI.csproj",
         "projectName": "BlackjackCLI",
-        "projectPath": "C:\\Users\\Dawid\\RiderProjects\\BlackjackCLI\\BlackjackCLI.csproj",
-        "packagesPath": "C:\\Users\\Dawid\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Dawid\\RiderProjects\\BlackjackCLI\\obj\\",
+        "projectPath": "/home/deiw/RiderProjects/BlackjackCLI/BlackjackCLI.csproj",
+        "packagesPath": "/home/deiw/.nuget/packages/",
+        "outputPath": "/home/deiw/RiderProjects/BlackjackCLI/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Dawid\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/home/deiw/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
+          "/usr/lib/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -36,7 +37,7 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "all"
+          "auditMode": "direct"
         },
         "SdkAnalysisLevel": "9.0.100"
       },
@@ -59,7 +60,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Users\\Dawid\\.dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/9.0.112/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
