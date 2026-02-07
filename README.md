@@ -25,7 +25,7 @@ Play against a computer dealer, hit or stand, and try to reach 21 without bustin
 
 - Clone the repo:
   
-  ``` git clone https://git.wwsi.edu.pl/DawidOldak/BlackjackCLI.git ```
+  ``` git clone https://github.com/Deeeiw/BlackjackCLI.git ```
 - Navigate to the project folder:
 
   ``` cd BlackjackCLI ```
@@ -41,4 +41,4 @@ C# 13.0
 
 ## Dependencies
 
-.NET 9+ Runtime
+.NET 9+ SDK
